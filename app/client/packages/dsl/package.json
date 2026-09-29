@@ -12,7 +12,7 @@
     "build": "rollup -c"
   },
   "dependencies": {
-    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-commonjs": "^29.0.3",
     "@types/lodash": "^4.14.120",
     "normalizr": "^3.6.2",
     "rollup": "^2.79.2",
