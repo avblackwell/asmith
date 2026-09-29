@@ -12858,17 +12858,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@uppy/onedrive@npm:^1.1.22":
-  version: 1.1.22
-  resolution: "@uppy/onedrive@npm:1.1.22"
+"@uppy/onedrive@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@uppy/onedrive@npm:6.0.0"
   dependencies:
-    "@uppy/companion-client": ^1.8.1
-    "@uppy/provider-views": ^1.11.0
-    "@uppy/utils": ^3.4.0
-    preact: 8.2.9
+    preact: ^10.29.2
   peerDependencies:
-    "@uppy/core": ^1.0.0
-  checksum: fa8a2963a673dc2622c5f53b8ba1639c80ec36d954461fc4e25a58645bf1ba8fd0e9033d7a6d4c1f96cb23226163feb3c9dff5b9ca2c17c2676b516ea7009452
+    "@uppy/core": ^6.0.0
+  checksum: f09a9414f7da9dcc893a89dc0a73d56920e48b0600628ccf56c0f408216a8ff8903af7ae743175f40c3fdd4183c097aedeb8d0621dd50498ed479702337c0346
   languageName: node
   linkType: hard
 
@@ -13919,7 +13916,7 @@ __metadata:
     "@uppy/dashboard": ^1.16.0
     "@uppy/google-drive": ^1.5.22
     "@uppy/image-editor": ^0.2.4
-    "@uppy/onedrive": ^1.1.22
+    "@uppy/onedrive": ^6.0.0
     "@uppy/react": ^1.11.2
     "@uppy/url": ^1.5.16
     "@uppy/utils": ^6.0.2
@@ -29154,10 +29151,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"preact@npm:^10.5.13":
-  version: 10.24.1
-  resolution: "preact@npm:10.24.1"
-  checksum: c20fe8dee3b1e6329c3b28252350cfc2873bb5ca6d29909fd1b3f15825c686f9dd636ea2aafb9b0c9dcf2a94597aa814a4ec15fc37d0536d4ef58c200ac290b6
+"preact@npm:^10.29.2, preact@npm:^10.5.13":
+  version: 10.29.8
+  resolution: "preact@npm:10.29.8"
+  peerDependencies:
+    preact-render-to-string: ">=5"
+  peerDependenciesMeta:
+    preact-render-to-string:
+      optional: true
+  checksum: 5a4774e8bce4ef5ebef5a3ef2358b47be6cd8b9b30132b1543d359efc90f8005a13506a75bfac6e9a044a614fa2a9def5f32fefd2c068f05221cf737283f1397
   languageName: node
   linkType: hard
 
