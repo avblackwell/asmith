@@ -1,0 +1,44 @@
+namespace cyflexV2;
+
+// structs save 4-8 bytes over tables
+struct DoubleValue  { value:double; }
+struct IntValue     { value:int;    }
+
+union valueUnion {
+  rvalue:DoubleValue,
+  ivalue:IntValue,
+  svalue:string
+}
+
+table fbChunk {
+  value:valueUnion; // using a union here can save 8-16 bytes per variable
+  utime:double; // last_update_time changing to long can eliminate FP issues but requires conversion everytime by sender
+}
+
+table fbLimit {
+  value:double;
+  type:int;
+  color:int;
+  // version 4 add on 
+  enable:bool = false;
+}
+
+table fbVariable {
+  id:ulong;
+  type:int;
+  ucode:int;
+  lstatus:uint = 0; // limit_status defaults to 0
+  chunks:[cyflexV2.fbChunk]; // 1 to N chunks for use by buffers
+  // set version to 3 when using below ???
+  lflag:bool = false;
+  limits:[cyflexV2.fbLimit];
+}
+
+table messageRoot {
+  version:int = 4; 
+  go_time:long;
+  variables:[cyflexV2.fbVariable];
+}
+
+root_type messageRoot;
+file_identifier "V2FB";

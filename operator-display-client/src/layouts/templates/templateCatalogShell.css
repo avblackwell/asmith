@@ -1,0 +1,130 @@
+.template-shell {
+  min-height: 100vh;
+  color: var(--ads-v2-color-fg);
+  background: var(--ads-v2-color-gray-50);
+}
+
+.template-shell__header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--ads-v2-color-border);
+  background: var(--ads-v2-color-bg);
+}
+
+.template-shell__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ads-v2-color-fg-emphasis-plus);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.template-shell__brand-mark {
+  font-size: 21px;
+  color: var(--ads-v2-color-bg-brand);
+}
+
+.template-shell__nav {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  gap: 24px;
+}
+
+.template-shell__nav a {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  border-bottom: 2px solid transparent;
+  color: var(--ads-v2-color-fg);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.template-shell__nav a[aria-current="page"] {
+  border-color: var(--ads-v2-color-bg-brand);
+  color: var(--ads-v2-color-fg-emphasis-plus);
+}
+
+/* These desktop dimensions match Templates/index.tsx and its stock theme. */
+.template-shell__page {
+  min-height: calc(100vh - 48px);
+  padding-top: 48px;
+}
+
+.template-shell__sidebar {
+  position: fixed;
+  top: 48px;
+  bottom: 0;
+  left: 0;
+  width: 256px;
+  overflow: auto;
+  padding: 25px 16px 24px;
+  box-sizing: border-box;
+}
+
+.template-shell__main {
+  width: calc(100% - 256px);
+  min-height: calc(100vh - 48px);
+  margin-left: 256px;
+  padding: 24px 24px 24px 0;
+  box-sizing: border-box;
+}
+
+.template-shell__panel {
+  min-height: calc(100vh - 96px);
+  padding: 48px;
+  border: 1px solid var(--ads-v2-color-border);
+  border-radius: var(--ads-v2-border-radius);
+  background: var(--ads-v2-color-bg);
+}
+
+@media (max-width: 760px) {
+  .template-shell__header {
+    position: relative;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 48px;
+    padding: 8px 16px;
+  }
+
+  .template-shell__nav {
+    min-height: 36px;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .template-shell__page {
+    padding-top: 0;
+  }
+
+  .template-shell__sidebar {
+    position: static;
+    width: auto;
+    max-height: 300px;
+    padding: 20px 16px;
+  }
+
+  .template-shell__main {
+    width: auto;
+    min-height: 0;
+    margin-left: 0;
+    padding: 0 16px 24px;
+  }
+
+  .template-shell__panel {
+    min-height: 0;
+    padding: 24px 16px;
+  }
+}

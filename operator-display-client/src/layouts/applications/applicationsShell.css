@@ -1,0 +1,114 @@
+.applications-shell {
+  min-height: 100vh;
+  background: var(--ads-v2-color-bg);
+  color: var(--ads-v2-color-fg);
+}
+
+.applications-shell__header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--ads-v2-color-border);
+  background: var(--ads-v2-color-bg);
+}
+
+.applications-shell__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ads-v2-color-fg-emphasis-plus);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.applications-shell__brand-mark {
+  color: var(--ads-v2-color-bg-brand);
+  font-size: 21px;
+}
+
+.applications-shell__nav {
+  display: flex;
+  align-items: stretch;
+  align-self: stretch;
+  gap: 24px;
+}
+
+.applications-shell__nav a {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  border-bottom: 2px solid transparent;
+  color: var(--ads-v2-color-fg);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.applications-shell__nav a[aria-current="page"] {
+  border-color: var(--ads-v2-color-bg-brand);
+  color: var(--ads-v2-color-fg-emphasis-plus);
+}
+
+.applications-shell__page {
+  padding-top: 48px;
+}
+
+/* Stock Appsmith Applications uses a 256px left pane below a 48px header. */
+.applications-shell__sidebar {
+  position: fixed;
+  top: 48px;
+  bottom: 0;
+  left: 0;
+  width: 256px;
+  overflow-y: auto;
+  border-right: 1px solid var(--ads-v2-color-border);
+  padding: 16px 12px;
+}
+
+.applications-shell__main {
+  min-height: calc(100vh - 48px);
+  margin-left: 256px;
+  padding: 0 24px 32px;
+  overflow-x: hidden;
+}
+
+@media (max-width: 760px) {
+  .applications-shell__header {
+    position: relative;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 48px;
+    gap: 8px;
+    padding: 8px 16px;
+  }
+
+  .applications-shell__nav {
+    flex-wrap: wrap;
+    min-height: 36px;
+    gap: 14px;
+  }
+
+  .applications-shell__page {
+    padding-top: 0;
+  }
+
+  .applications-shell__sidebar {
+    position: static;
+    width: auto;
+    padding: 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--ads-v2-color-border);
+  }
+
+  .applications-shell__main {
+    min-height: 0;
+    margin-left: 0;
+    padding: 0 16px 24px;
+  }
+}

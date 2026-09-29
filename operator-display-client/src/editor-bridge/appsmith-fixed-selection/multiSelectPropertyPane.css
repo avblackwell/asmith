@@ -1,0 +1,31 @@
+/* Appsmith MultiSelectPropertyPane's Tailwind utility values scoped locally. */
+.appsmith-multi-select-property-pane {
+  position: relative;
+}
+
+.appsmith-multi-select-property-pane .px-3 {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.appsmith-multi-select-property-pane .py-3 {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.appsmith-multi-select-property-pane .py-1 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.appsmith-multi-select-property-pane .space-y-3 > * + * {
+  margin-top: 12px;
+}
+
+.appsmith-multi-select-property-pane .flex {
+  display: flex;
+}
+
+.appsmith-multi-select-property-pane .flex-col {
+  flex-direction: column;
+}

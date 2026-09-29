@@ -1,0 +1,41 @@
+/* Appsmith JSONFormWidget/component/{Form,FieldLabel,styleConstants}.tsx geometry. */
+.od-json-form {
+  --od-json-form-accent: #03b365;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+.od-json-form *, .od-json-form *::before, .od-json-form *::after { box-sizing: border-box; }
+.od-json-form__form { display: flex; flex-direction: column; height: 100%; width: 100%; }
+.od-json-form[data-auto-height="true"] { height: auto; overflow: visible; }
+.od-json-form[data-auto-height="true"] .od-json-form__form { height: auto; }
+.od-json-form__body { flex: 1 0 auto; padding: 25px; }
+.od-json-form__title { font-size: 1.25rem; font-weight: 700; margin-bottom: 16px; word-break: break-word; }
+.od-json-form__field { display: flex; flex-direction: column; margin-bottom: 16px; min-width: 0; width: 100%; }
+.od-json-form__field-label { display: flex; align-items: center; font-size: 0.875rem; margin-bottom: 4px; }
+.od-json-form__required { color: #d14343; margin-left: 2px; }
+.od-json-form__tooltip { cursor: help; font-size: 12px; margin-left: 5px; opacity: 0.65; }
+.od-json-form__input { width: 100%; min-height: 32px; }
+.od-json-form__field .od-json-form__input:focus { border-color: var(--od-json-form-field-accent, var(--od-json-form-accent)); }
+.od-json-form__field .bp3-control input:checked ~ .bp3-control-indicator { background-color: var(--od-json-form-field-accent, var(--od-json-form-accent)); }
+.od-json-form__field .bp3-checkbox .bp3-control-indicator { border-radius: var(--od-json-form-field-radius, 0); }
+.od-json-form__field textarea.od-json-form__input { min-height: 72px; resize: vertical; }
+.od-json-form__field select[multiple] { min-height: 100px; }
+.od-json-form__field .bp3-popover-wrapper,
+.od-json-form__field .bp3-popover-target { display: block; width: 100%; }
+.od-json-form__field .bp3-input-group { width: 100%; }
+.od-json-form__field .bp3-control { margin-bottom: 0; }
+.od-json-form__radio-group { display: flex; flex-wrap: wrap; gap: 12px; }
+.od-json-form__object:not(:first-child), .od-json-form__array { border: 1px solid #e0dede; margin-bottom: 16px; padding: 15px; }
+.od-json-form__object-label { font-size: 0.875rem; font-weight: 600; margin-bottom: 10px; }
+.od-json-form__array-item { border: 1px solid #e0dede; margin-bottom: 10px; padding: 10px; }
+.od-json-form__array-action { background: transparent; border: 0; color: var(--od-json-form-accent); cursor: pointer; font-size: 11px; font-weight: 600; padding: 4px 0; text-transform: uppercase; }
+.od-json-form__array-action:disabled { cursor: not-allowed; opacity: 0.3; }
+.od-json-form__array-delete { color: #d14343; display: block; margin-left: auto; }
+.od-json-form__footer { bottom: 0; display: flex; gap: 10px; justify-content: flex-end; padding: 25px; width: 100%; z-index: 1; }
+.od-json-form__footer > button { min-width: 110px; }
+.od-json-form__submit.bp3-intent-primary { background: var(--od-json-form-accent); }
+.od-json-form__message { align-items: center; display: flex; font-size: 1.1rem; justify-content: center; min-height: 200px; text-align: center; }
+.od-json-form__message--auto-height { height: 303px; }

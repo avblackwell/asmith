@@ -1,0 +1,124 @@
+.integration-header {
+  flex: none;
+  min-width: 0;
+  color: var(--ads-v2-color-fg);
+  background: var(--ads-v2-color-bg);
+}
+
+.integration-header > .t--editor-header {
+  padding-right: 12px;
+}
+
+.integration-header__document-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.integration-header__unsaved {
+  border-radius: 3px;
+  background: var(--ads-v2-color-bg-muted);
+  color: var(--ads-v2-color-fg-muted);
+  font-size: 11px;
+  padding: 2px 5px;
+}
+
+.integration-header__editor-label {
+  overflow: hidden;
+  color: var(--ads-v2-color-fg-subtle);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.integration-header__fields {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding: 7px 20px;
+  border-bottom: 1px solid var(--ads-v2-color-border);
+}
+
+.integration-header__fields label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.integration-header__fields input:not([type="file"]) {
+  width: 220px;
+  padding: 6px 8px;
+  border: 1px solid var(--ads-v2-color-border);
+  border-radius: 4px;
+  background: var(--ads-v2-color-bg);
+  color: var(--ads-v2-color-fg);
+}
+
+.integration-header__fields input:disabled {
+  opacity: 0.55;
+}
+
+.integration-header__secondary-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.integration-header__secondary-actions a {
+  color: var(--ads-v2-color-fg-emphasis);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.integration-header__import-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.integration-status-bar {
+  display: flex;
+  flex: none;
+  min-height: 30px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  padding: 5px 14px;
+  border-top: 1px solid var(--ads-v2-color-border);
+  background: var(--ads-v2-color-bg-subtle);
+  color: var(--ads-v2-color-fg-muted);
+  font-size: 12px;
+}
+
+.integration-status-bar[role="alert"] {
+  background: #fff1f2;
+  color: #a21c32;
+}
+
+@media (max-width: 900px) {
+  .integration-header__editor-label {
+    display: none;
+  }
+
+  .integration-header__fields label {
+    flex: 1 1 250px;
+  }
+
+  .integration-header__fields input:not([type="file"]) {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .integration-header__secondary-actions {
+    margin-left: 0;
+  }
+}

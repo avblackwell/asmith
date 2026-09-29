@@ -1,0 +1,36 @@
+.od-chart-data {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.od-chart-data__series {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  padding: 10px 8px 12px;
+  border-radius: 4px;
+  background: var(--ads-v2-color-bg-subtle);
+}
+.od-chart-data__series-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.od-chart-data__series-header h4 { margin: 0; }
+.od-chart-data__json-input textarea {
+  min-height: 100px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 11px;
+  resize: vertical;
+}
+.od-chart-data__empty,
+.od-chart-data__unavailable {
+  margin: 0;
+  color: var(--ads-v2-color-fg-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+.od-chart-data > button { align-self: flex-end; }

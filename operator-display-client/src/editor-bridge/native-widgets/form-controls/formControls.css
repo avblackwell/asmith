@@ -1,0 +1,121 @@
+.od-native-form {
+  --od-form-accent: #03b365;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+  box-sizing: border-box;
+  color: var(--wds-color-text, #231f20);
+}
+
+.od-native-form[data-label-position="left"] { flex-direction: row; align-items: center; }
+.od-native-form[data-label-position="left"] > .od-native-form__label { width: 33%; flex: 0 0 33%; }
+.od-native-form[data-label-position="right"] { flex-direction: row-reverse; align-items: center; }
+.od-native-form__label { display: block; line-height: 20px; overflow: hidden; text-overflow: ellipsis; }
+.od-native-form__required { color: var(--wds-color-text-danger, #d14343); }
+.od-native-form__control { display: flex; flex: 1 1 auto; min-width: 0; min-height: 0; }
+.od-native-form__field {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 32px;
+  height: 100%;
+  padding: 0 10px;
+  background: #fff;
+  border: 1px solid var(--wds-color-border, #d7d7d7);
+  color: var(--wds-color-text, #231f20);
+  font: inherit;
+  font-size: 14px;
+}
+.od-native-form__field::placeholder { color: var(--wds-color-text-light, #858282); }
+.od-native-form__field:focus { outline: 0; border-color: var(--od-form-accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--od-form-accent) 20%, transparent); }
+.od-native-form__field:disabled { background: var(--wds-color-bg-disabled, #f0f0f0); color: var(--wds-color-text-disabled, #858282); }
+.od-native-form__textarea { resize: none; min-height: 42px; padding-top: 8px; }
+.od-native-form__select { appearance: auto; }
+.od-native-form__select[multiple] { padding: 5px 8px; }
+.od-native-form__unresolved { color: #8c2b2b; font-size: 12px; }
+
+.od-native-form--toggle { display: flex; flex-direction: row; align-items: center; justify-content: stretch; gap: 0; }
+/* Blueprint Control's DOM and Appsmith CheckboxComponent/SwitchComponent rules. */
+.od-native-form--toggle .bp3-control { width: 100%; margin: 0; padding: 0; height: auto; display: flex; align-items: flex-start; gap: 10px; position: relative; cursor: pointer; }
+.od-native-form--toggle .bp3-control.bp3-align-right { flex-direction: row-reverse; }
+.od-native-form--toggle .bp3-control.bp3-disabled { cursor: not-allowed; }
+.od-native-form--toggle .bp3-control > input { position: absolute; left: 0; top: 0; opacity: 0; z-index: -1; }
+.od-native-form--toggle .bp3-control .label-container { max-width: 100%; flex: 1 1 auto; overflow: auto; text-overflow: unset; white-space: normal; word-break: break-word; }
+.od-native-form--toggle .bp3-control.bp3-disabled .label-container { color: var(--wds-color-text-disabled, #858282) !important; }
+.od-native-form--toggle .bp3-control .bp3-control-indicator { box-sizing: border-box; flex: 0 0 16px; display: inline-block; width: 16px; height: 16px; position: relative; margin-top: .2rem; background: white; box-shadow: 0 0 0 1px var(--wds-color-border, #d7d7d7); user-select: none; }
+.od-native-form--toggle .bp3-control .bp3-control-indicator::before { content: ""; display: block; width: 100%; height: 100%; background-repeat: no-repeat; background-position: center; }
+.od-native-form--toggle .bp3-control:hover input:not(:checked):not(:disabled) ~ .bp3-control-indicator,
+.od-native-form--toggle .bp3-control input:not(:checked):not(:disabled):focus ~ .bp3-control-indicator { box-shadow: 0 0 0 1px var(--wds-color-border-hover, #999); }
+.od-native-form--toggle .bp3-control input:checked ~ .bp3-control-indicator { background: var(--od-form-accent); border: 0; box-shadow: none; }
+.od-native-form--toggle .bp3-control.bp3-disabled input ~ .bp3-control-indicator { background: var(--wds-color-bg-disabled, #eee); box-shadow: 0 0 0 1px var(--wds-color-border-disabled, #ddd); }
+.od-native-form--toggle .bp3-control.od-native-form__invalid input:not(:checked) ~ .bp3-control-indicator { box-shadow: 0 0 0 1px var(--wds-color-border-danger, #d14343); }
+.od-native-form--toggle .bp3-checkbox .bp3-control-indicator { border-radius: var(--od-form-checkbox-radius, 0); }
+.od-native-form--toggle .bp3-checkbox input:checked ~ .bp3-control-indicator::before { background-image: url("./check-icon.svg"); }
+.od-native-form--toggle .bp3-checkbox input:checked:disabled ~ .bp3-control-indicator::before { background-image: url("./disabledcheck-icon.svg"); }
+.od-native-form--toggle .bp3-switch .bp3-control-indicator { width: 28px; flex-basis: 28px; height: 16px; border-radius: 1.75em; background: var(--wds-color-bg-strong, #bbb); border: 1px solid var(--wds-color-border, #aaa); box-shadow: none; margin-top: 1px; }
+.od-native-form--toggle .bp3-switch .bp3-control-indicator::before { position: absolute; left: 0; top: 0; margin: 2px; width: calc(1em - 4px); height: calc(1em - 4px); border-radius: 50%; background: #fff; transition: left 100ms cubic-bezier(.4, 1, .75, .9); }
+.od-native-form--toggle .bp3-switch input:checked ~ .bp3-control-indicator { background: var(--od-form-accent); border: 1px solid var(--od-form-accent); }
+.od-native-form--toggle .bp3-switch input:checked ~ .bp3-control-indicator::before { left: calc(105% - 1em); }
+.od-native-form--toggle .bp3-switch input:disabled ~ .bp3-control-indicator::before { background: var(--wds-color-bg-disabled-strong, #aaa); }
+
+.od-native-form__radio-options { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.od-native-form__radio-options[data-inline="true"] { flex-direction: row; flex-wrap: wrap; gap: 8px 18px; }
+.od-native-form__radio-option { display: flex; align-items: center; gap: 5px; font-size: 14px; cursor: pointer; }
+.od-native-form__radio-option input { accent-color: var(--od-form-accent); margin: 0; }
+
+/* InputWidgetV2 -> BaseInputWidget: ControlGroup, TextInputWrapper, InputGroup. */
+.od-native-form--input { height: auto; justify-content: flex-start; }
+.od-native-form--input[data-multiline="true"] { height: 100%; }
+.od-native-form--input[data-multiline="true"][data-auto-height="true"] { height: auto; }
+.od-native-form--input[data-label-position="left"] { flex-direction: row; align-items: center; }
+.od-native-form--input .label-container { display: flex; align-items: center; flex: 0 0 auto; min-width: 0; }
+.od-native-form--input[data-label-position="top"] .label-container { width: 100%; }
+.od-native-form--input[data-label-position="left"] .label-container { width: 33%; margin-right: 5px; }
+.od-native-form--input .t--input-widget-label { line-height: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.od-native-form--input .text-input-wrapper { box-sizing: border-box; width: 100%; display: flex; flex: 1 1 auto; min-width: 0; min-height: 32px; height: auto; overflow: hidden; background: #fff; border: 1px solid var(--wds-color-border, #d7d7d7); }
+.od-native-form--input[data-multiline="true"] .text-input-wrapper { height: 100%; }
+.od-native-form--input[data-multiline="true"][data-auto-height="true"] .text-input-wrapper { height: auto; }
+.od-native-form--input .text-input-wrapper:hover { border-color: var(--wds-color-border-hover, #999); }
+.od-native-form--input .text-input-wrapper:focus-within { border-color: var(--od-form-accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--od-form-accent) 20%, transparent) !important; }
+.od-native-form--input .bp3-input-group { display: flex; position: relative; flex: 1 1 auto; min-width: 0; background: #fff; }
+.od-native-form--input .bp3-input { box-sizing: border-box; position: relative; display: block; width: 100%; height: 30px; min-width: 0; border: 0; outline: 0; padding: 0 10px; font: inherit; font-size: 14px; color: var(--wds-color-text, #231f20); background: #fff; }
+.od-native-form--input .bp3-input::placeholder { color: var(--wds-color-text-light, #858282); }
+.od-native-form--input .bp3-input:disabled,
+.od-native-form--input .od-native-form__input-textarea:disabled { color: var(--wds-color-text-disabled, #858282); background: var(--wds-color-bg-disabled, #f0f0f0); }
+.od-native-form--input .od-native-form__input-textarea { box-sizing: border-box; width: 100%; height: 100%; min-height: 32px; resize: none; padding: 10px; border: 0; outline: 0; font: inherit; font-size: 14px; }
+.od-native-form--input[data-auto-height="true"] .od-native-form__input-textarea { height: auto; overflow: hidden; }
+.od-native-form--input .bp3-input-action { display: flex; position: relative; }
+.od-native-form__password-action { width: 36px; height: 100%; min-height: 30px; cursor: pointer; border: 0; background: #fff; color: var(--wds-color-icon, #555); }
+.od-native-form__password-action:hover { background: var(--wds-color-bg-hover, #eee); }
+.od-native-form__password-action .bp3-icon { display: flex; align-items: center; justify-content: center; height: 100%; }
+.od-native-form__password-action svg { width: 20px; height: 20px; fill: currentColor; }
+.od-native-form--input .bp3-numeric-input { display: flex; flex: 1; min-width: 0; }
+.od-native-form--input .bp3-button-group.bp3-vertical { display: flex; flex-direction: column; width: 24px; flex: 0 0 24px; }
+.od-native-form--input .bp3-button-group.bp3-vertical button { flex: 1; min-height: 15px; padding: 0; border: 0; background: #fff; color: var(--wds-color-icon, #555); line-height: 12px; cursor: pointer; }
+.od-native-form--input .bp3-button-group.bp3-vertical button:hover { background: var(--wds-color-bg-hover, #eee); }
+.od-native-form--input .bp3-button-group.bp3-vertical button:disabled { background: var(--wds-color-bg-disabled, #eee); color: var(--wds-color-icon-disabled, #aaa); cursor: not-allowed; }
+.od-native-form--input .bp3-button-group.bp3-vertical .bp3-icon { display: flex; align-items: center; justify-content: center; }
+.od-native-form--input .bp3-button-group.bp3-vertical svg { width: 12px; height: 12px; fill: currentColor; }
+
+/* RadioGroupWidget -> BlueprintRadioSwitchGroupTransform and Radio. */
+.od-native-form--radio { justify-content: flex-start; }
+.od-native-form--radio[data-label-position="left"] { flex-direction: row; align-items: center; }
+.od-native-form--radio .label-container { display: flex; align-items: center; align-self: center; min-width: 0; width: 100%; }
+.od-native-form--radio[data-label-position="left"] .label-container { width: 33%; min-height: 30px; margin-right: 5px; }
+.od-native-form--radio .radiogroup-label { line-height: 20px; overflow: hidden; text-overflow: ellipsis; }
+.od-native-form--radio .od-native-form__radio-options { width: 100%; height: 100%; flex: 1 1 auto; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.od-native-form--radio .od-native-form__radio-options[data-inline="true"] { display: inline-flex; flex-direction: row; align-items: center; flex-wrap: wrap; }
+.od-native-form--radio .od-native-form__radio-options .bp3-control { position: relative; display: flex; align-items: center; width: auto; gap: 10px; border: 1px solid transparent; padding: 0; line-height: 16px; color: var(--wds-color-text, #231f20); cursor: pointer; }
+.od-native-form--radio .od-native-form__radio-options[data-align="right"] .bp3-control { display: inline-block; text-align: right; }
+.od-native-form--radio .od-native-form__radio-options[data-align="right"]:not([data-inline="true"]) .bp3-control { width: 100%; }
+.od-native-form--radio .od-native-form__radio-options .bp3-control.bp3-align-right .bp3-control-indicator { float: right; margin-left: 10px; }
+.od-native-form--radio .od-native-form__radio-options .bp3-control > input { position: absolute; opacity: 0; left: 0; top: 0; z-index: -1; }
+.od-native-form--radio .od-native-form__radio-options .bp3-control-indicator { flex: 0 0 16px; display: inline-block; width: 16px; height: 16px; background: #fff; border: 1px solid var(--wds-color-border, #aaa); border-radius: 50%; box-sizing: border-box; }
+.od-native-form--radio .od-native-form__radio-options .bp3-control-indicator::before { content: ""; display: block; width: 100%; height: 100%; }
+.od-native-form--radio .od-native-form__radio-options .bp3-control > input:checked ~ .bp3-control-indicator { background: var(--od-form-accent); border-color: var(--od-form-accent); }
+.od-native-form--radio .od-native-form__radio-options .bp3-control > input:checked ~ .bp3-control-indicator::before { background-image: radial-gradient(#fff, #fff 28%, transparent 32%); }
+.od-native-form--radio .od-native-form__radio-options .bp3-control > input:disabled ~ .bp3-control-indicator { background: var(--wds-color-bg-disabled, #eee); border-color: var(--wds-color-border-disabled, #ddd); }
+.od-native-form--radio .od-native-form__radio-options .bp3-control > input:disabled:checked ~ .bp3-control-indicator::before { background-image: radial-gradient(var(--wds-color-bg-disabled-strong, #aaa), var(--wds-color-bg-disabled-strong, #aaa) 28%, transparent 32%); }

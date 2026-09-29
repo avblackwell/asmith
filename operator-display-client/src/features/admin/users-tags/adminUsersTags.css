@@ -1,0 +1,208 @@
+.admin-entity__content {
+  min-width: 0;
+  padding: 32px 36px 64px;
+  color: var(--ads-v2-color-fg, #252b32);
+}
+
+.admin-entity__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+
+.admin-entity__heading h1,
+.admin-entity__card h2 {
+  margin: 0;
+}
+
+.admin-entity__heading p,
+.admin-entity__card p,
+.admin-entity__hint {
+  margin: 8px 0 0;
+  color: var(--ads-v2-color-fg-subtle, #626b75);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.admin-entity__toolbar {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 22px;
+}
+
+.admin-entity__toolbar > :first-child {
+  flex: 1;
+  min-width: 220px;
+}
+
+.admin-entity__toolbar label {
+  display: grid;
+  gap: 4px;
+  color: var(--ads-v2-color-fg-subtle, #626b75);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.admin-entity__toolbar select {
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--ads-v2-color-border, #d9dfe5);
+  border-radius: 5px;
+  background: var(--ads-v2-color-bg, #fff);
+  color: var(--ads-v2-color-fg, #252b32);
+  font: inherit;
+  font-size: 12px;
+}
+
+.admin-entity__table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--ads-v2-color-border, #e0e4e8);
+  border-radius: 8px;
+  background: var(--ads-v2-color-bg, #fff);
+}
+
+.admin-entity__table-wrap > p[role="status"] {
+  padding: 22px;
+}
+
+.admin-entity__table-wrap a,
+.admin-entity__memberships a,
+.admin-entity__back {
+  color: var(--ads-v2-color-fg-brand, #6846c5);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.admin-entity__table-wrap a:hover,
+.admin-entity__memberships a:hover,
+.admin-entity__back:hover {
+  text-decoration: underline;
+}
+
+.admin-entity__count {
+  margin: 0;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--ads-v2-color-border, #e0e4e8);
+  color: var(--ads-v2-color-fg-subtle, #626b75);
+  font-size: 12px;
+}
+
+.admin-entity__pager,
+.admin-entity__actions,
+.admin-entity__row-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.admin-entity__pager {
+  justify-content: center;
+  padding: 15px;
+  border-top: 1px solid var(--ads-v2-color-border, #e0e4e8);
+  color: var(--ads-v2-color-fg-subtle, #626b75);
+  font-size: 12px;
+}
+
+.admin-entity__card {
+  margin: 18px 0;
+  padding: 20px;
+  border: 1px solid var(--ads-v2-color-border, #e0e4e8);
+  border-radius: 8px;
+  background: var(--ads-v2-color-bg, #fff);
+}
+
+.admin-entity__form {
+  display: grid;
+  gap: 16px;
+  max-width: 760px;
+}
+
+.admin-entity__field-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.admin-entity__notice {
+  margin: 16px 0;
+  padding: 11px 14px;
+  border: 1px solid var(--ads-v2-color-border, #e0e4e8);
+  border-radius: 6px;
+  background: var(--ads-v2-color-bg-subtle, #f5f7f9);
+  color: var(--ads-v2-color-fg, #39434d);
+  font-size: 13px;
+}
+
+.admin-entity__notice p {
+  margin: 0 0 8px;
+}
+
+.admin-entity__notice--error {
+  border-color: var(--ads-v2-color-border-error, #e4acac);
+  background: var(--ads-v2-color-bg-error, #fff4f4);
+  color: var(--ads-v2-color-fg-error, #a52121);
+}
+
+.admin-entity__back {
+  display: inline-block;
+  margin-bottom: 26px;
+  font-size: 13px;
+}
+
+.admin-entity__memberships {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-entity__memberships li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--ads-v2-color-border, #e0e4e8);
+}
+
+.admin-entity__memberships li > div,
+.admin-entity__membership-role {
+  display: grid;
+  gap: 5px;
+}
+
+.admin-entity__memberships small {
+  color: var(--ads-v2-color-fg-subtle, #626b75);
+  font-size: 11px;
+}
+
+.admin-entity__confirm {
+  max-width: 560px;
+  border-color: var(--ads-v2-color-border-error, #e4acac);
+}
+
+.admin-entity__confirm .admin-entity__actions {
+  margin-top: 18px;
+}
+
+.admin-entity__content :is(a, button, select):focus-visible {
+  outline: 2px solid var(--ads-v2-color-fg-brand, #6846c5);
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .admin-entity__content {
+    padding: 22px 18px 48px;
+  }
+
+  .admin-entity__heading {
+    flex-direction: column;
+  }
+
+  .admin-entity__field-grid {
+    grid-template-columns: 1fr;
+  }
+}

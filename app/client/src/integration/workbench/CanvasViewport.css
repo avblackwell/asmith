@@ -1,0 +1,63 @@
+.integration-canvas-viewport {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.integration-canvas-viewport__toolbar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 38px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--ads-v2-color-border);
+  background: var(--ads-v2-color-bg);
+  color: var(--ads-v2-color-fg);
+  font-size: 12px;
+}
+
+.integration-canvas-viewport__size {
+  white-space: nowrap;
+}
+
+.integration-canvas-viewport__buttons {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+}
+
+.integration-canvas-viewport__buttons button {
+  width: 28px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid var(--ads-v2-color-border);
+  border-radius: 4px;
+  background: var(--ads-v2-color-bg);
+  color: var(--ads-v2-color-fg);
+  cursor: pointer;
+}
+
+.integration-canvas-viewport__buttons button:hover:not(:disabled) {
+  background: var(--ads-v2-color-bg-subtle, #f1f5f9);
+}
+
+.integration-canvas-viewport__buttons button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.integration-canvas-viewport__buttons button:focus-visible {
+  outline: 2px solid var(--ads-v2-color-outline);
+  outline-offset: 2px;
+}
+
+.integration-canvas-viewport__scroll {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+}

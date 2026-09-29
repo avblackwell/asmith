@@ -1,0 +1,52 @@
+{
+  "go_time": -9007199254740993,
+  "variables": [
+    {
+      "id": 18446744073709551615,
+      "type": 1,
+      "ucode": -17,
+      "lstatus": 4294967295,
+      "chunks": [
+        {
+          "value_type": "rvalue",
+          "value": { "value": 12.5 },
+          "utime": 1234.25
+        },
+        {
+          "value_type": "rvalue",
+          "value": { "value": -0.5 },
+          "utime": 1235.5
+        }
+      ],
+      "lflag": true,
+      "limits": [
+        { "value": 100.25, "type": -2, "color": 16711680, "enable": true },
+        { "value": 0, "type": 0, "color": 0 }
+      ]
+    },
+    {
+      "id": 9007199254740993,
+      "type": 2,
+      "ucode": 23,
+      "chunks": [
+        {
+          "value_type": "ivalue",
+          "value": { "value": -2147483648 },
+          "utime": 0
+        }
+      ]
+    },
+    {
+      "id": 0,
+      "type": 3,
+      "ucode": 0,
+      "chunks": [
+        {
+          "value_type": "svalue",
+          "value": "Café 日本語",
+          "utime": 42.75
+        }
+      ]
+    }
+  ]
+}

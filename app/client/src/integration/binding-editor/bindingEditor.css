@@ -1,0 +1,157 @@
+.binding-editor {
+  flex: none;
+  border-bottom: 1px solid #d8e1e8;
+  color: #17212b;
+  font-size: 12px;
+}
+
+.binding-editor summary {
+  cursor: pointer;
+  padding: 12px 14px;
+  font-weight: 600;
+}
+
+.binding-editor__body {
+  display: grid;
+  gap: 10px;
+  max-height: 460px;
+  overflow: auto;
+  padding: 0 14px 14px;
+}
+
+.binding-editor__body p,
+.binding-editor__repair h3 {
+  margin: 0;
+}
+
+.binding-editor__body label,
+.binding-editor__form {
+  display: grid;
+  gap: 5px;
+}
+
+.binding-editor__body label {
+  font-weight: 600;
+}
+
+.binding-editor__form {
+  gap: 10px;
+}
+
+.binding-editor input,
+.binding-editor select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #abbac4;
+  border-radius: 4px;
+  background: #fff;
+  color: #17212b;
+  font: inherit;
+}
+
+.binding-editor__hint,
+.binding-editor__target {
+  color: #526575;
+}
+
+.binding-editor__target {
+  font-weight: 600;
+}
+
+.binding-editor__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.binding-editor button {
+  padding: 7px 9px;
+  border: 1px solid #126e9a;
+  border-radius: 4px;
+  background: #126e9a;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+}
+
+.binding-editor button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.binding-editor__repair {
+  display: grid;
+  gap: 8px;
+  padding: 9px;
+  border: 1px solid #d8a34a;
+  border-radius: 4px;
+  background: #fff9ef;
+}
+
+.binding-editor__repair-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  overflow-wrap: anywhere;
+}
+
+.binding-editor__repair-row button {
+  flex: none;
+}
+
+.binding-editor__browse-toggle {
+  justify-self: start;
+}
+
+.binding-editor__discovery {
+  display: grid;
+  gap: 9px;
+  padding: 10px;
+  border: 1px solid #b8ccd8;
+  border-radius: 4px;
+  background: #f4f9fc;
+}
+
+.binding-editor__discovery-header,
+.binding-editor__pages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.binding-editor__discovery h3 {
+  margin: 0;
+  font-size: 12px;
+}
+
+.binding-editor__discovery-header button,
+.binding-editor__pages button {
+  flex: none;
+}
+
+.binding-editor__variable-list {
+  display: grid;
+  gap: 4px;
+  max-height: 180px;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.binding-editor__variable-list button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+.binding-editor__variable-list small {
+  flex: none;
+  font-size: 10px;
+}

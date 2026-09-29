@@ -1,0 +1,61 @@
+.dashboard-run {
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid #d7e2e9;
+  border-radius: 8px;
+  background: #f8fbfd;
+}
+
+.dashboard-run button,
+.dashboard-run select {
+  font: inherit;
+}
+
+.dashboard-run button {
+  padding: 7px 10px;
+  border: 1px solid #126e9a;
+  border-radius: 5px;
+  background: #126e9a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.dashboard-run button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.dashboard-run__body {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.dashboard-run__body h3,
+.dashboard-run__body p {
+  margin: 0;
+}
+
+.dashboard-run__body label {
+  font-weight: 600;
+}
+
+.dashboard-run__body select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #9aafbd;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.dashboard-run__actions,
+.dashboard-run__pages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashboard-run__status {
+  color: #40586a;
+}

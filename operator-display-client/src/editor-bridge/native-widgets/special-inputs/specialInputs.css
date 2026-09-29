@@ -1,0 +1,128 @@
+/* Appsmith DatePickerWidget2 and BaseInputWidget Fixed styles, scoped to this port. */
+.od-special-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+  color: var(--wds-color-text, #231f20);
+}
+.od-special-input[data-label-position="left"] {
+  flex-direction: row;
+  align-items: stretch;
+}
+.od-special-input__label {
+  flex: 0 0 auto;
+  display: block;
+  min-width: 0;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.od-special-input[data-label-position="left"] .od-special-input__label {
+  width: var(--od-special-label-width, 33%);
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+.od-special-input__required { color: var(--wds-color-text-danger, #d14343); }
+.od-special-input__field { flex: 1 1 auto; min-width: 0; display: flex; }
+.od-special-input__input-wrap {
+  width: 100%;
+  min-width: 0;
+  min-height: 32px;
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--wds-color-border, #d7d7d7);
+  border-radius: var(--od-special-radius, 0);
+  box-shadow: var(--od-special-shadow, none);
+  overflow: hidden;
+  background: #fff;
+}
+.od-special-input__input-wrap:hover { border-color: var(--wds-color-border-hover, #999); }
+.od-special-input__input-wrap:focus-within {
+  border-color: var(--od-special-accent, #03b365);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--od-special-accent, #03b365) 20%, transparent) !important;
+}
+.od-special-input[data-invalid="true"] .od-special-input__input-wrap {
+  border-color: var(--wds-color-border-danger, #d14343);
+}
+.od-special-input__input-wrap .bp3-input-group,
+.od-special-input__input-wrap .bp3-numeric-input { flex: 1 1 auto; width: 100%; min-width: 0; }
+.od-special-input__input-wrap .bp3-input {
+  width: 100%; min-width: 0; height: 30px; min-height: 30px;
+  border: 0; border-radius: 0; box-shadow: none;
+  padding-left: 10px; font-size: 14px;
+  background: #fff; color: var(--wds-color-text, #231f20);
+}
+.od-special-input__input-wrap .bp3-input:focus { box-shadow: none; }
+.od-special-input__input-wrap .bp3-input:disabled {
+  background: var(--wds-color-bg-disabled, #eee);
+  color: var(--wds-color-text-disabled, #999);
+}
+.od-special-input__input-wrap .bp3-input::placeholder,
+.od-special-input[data-date="true"] .bp3-input::placeholder {
+  color: var(--wds-color-text-light, #858282);
+}
+.od-special-input__code {
+  flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between;
+  gap: 0.25rem; padding: 0 0.75rem; height: 30px; margin-right: 0.625rem;
+  border: 0; border-right: 1px solid var(--wds-color-border, #d7d7d7);
+  border-radius: 0; background: #fff; color: var(--wds-color-text, #231f20);
+  font-size: 14px; letter-spacing: -0.24px; cursor: pointer;
+}
+.od-special-input__code:disabled {
+  background: var(--wds-color-bg-disabled, #eee);
+  color: var(--wds-color-text-disabled, #999);
+  border-right-color: var(--wds-color-border-disabled, #ddd);
+  cursor: default;
+}
+.od-special-input__flag { font-family: "Twemoji Country Flags"; font-size: 20px; line-height: 19px; }
+.od-special-input__chevron { color: var(--wds-color-icon, #555); margin-left: 2px; }
+.od-special-input__code-menu {
+  min-width: 260px; width: min(360px, 90vw); padding: 10px;
+  background: #fff; border-radius: var(--od-special-radius, 0);
+}
+.od-special-input__code-menu .bp3-input { width: 100%; }
+.od-special-input__code-options { max-height: 139px; overflow: auto; margin-top: 8px; }
+.od-special-input__code-option {
+  display: block; width: 100%; padding: 6px 8px; border: 0;
+  background: #fff; color: var(--wds-color-text, #231f20);
+  text-align: left; cursor: pointer;
+}
+.od-special-input__code-option:hover { background: var(--wds-color-bg-hover, #eee); }
+.od-special-input__input-wrap .bp3-button-group.bp3-vertical button {
+  background: #fff; box-shadow: none; min-width: 24px; width: 24px; border-radius: 0;
+}
+.od-special-input__input-wrap .bp3-button-group.bp3-vertical button:hover {
+  background: var(--wds-color-bg-hover, #eee);
+}
+.od-special-input[data-date="true"] .od-special-input__field,
+.od-special-input[data-date="true"] .od-special-input__date-control,
+.od-special-input[data-date="true"] .bp3-input-group { width: 100%; }
+.od-special-input[data-date="true"] .bp3-input {
+  width: 100%; height: 32px; min-height: 32px;
+  border: 1px solid var(--wds-color-border, #d7d7d7);
+  border-radius: var(--od-special-radius, 0) !important;
+  box-shadow: var(--od-special-shadow, none) !important;
+  color: var(--wds-color-text, #231f20);
+  background: var(--wds-color-bg, #fff);
+  font-size: 14px;
+}
+.od-special-input[data-date="true"] .bp3-input:hover:not(:disabled) {
+  border-color: var(--wds-color-border-hover, #999);
+}
+.od-special-input[data-date="true"] .bp3-input:focus:not(:disabled) {
+  border-color: var(--od-special-accent, #03b365);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--od-special-accent, #03b365) 20%, transparent) !important;
+}
+.od-special-input[data-date="true"][data-invalid="true"] .bp3-input {
+  border-color: var(--wds-color-border-danger, #d14343);
+}
+.od-special-input[data-date="true"] .bp3-input:disabled {
+  background: var(--wds-color-bg-disabled, #eee);
+  color: var(--wds-color-text-disabled, #999);
+}

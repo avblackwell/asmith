@@ -1,0 +1,29 @@
+.od-custom-code-editor {
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+}
+
+.od-custom-code-editor .CodeMirror.cm-s-duotone-light.CodeMirror-wrap {
+  clip-path: none !important;
+  height: 100%;
+  border: none;
+  background: var(--ads-v2-color-bg, #fff);
+  color: var(--ads-v2-color-fg, #191b21);
+  font-family: var(--ads-v2-font-family-code, monospace);
+  font-size: 13px;
+}
+
+.od-custom-code-editor .CodeMirror-foldgutter { width: 0.9em; }
+.od-custom-code-editor .CodeMirror-guttermarker-subtle { color: #442334 !important; }
+.od-custom-code-editor .CodeMirror-activeline-background {
+  background: var(--ads-v2-color-bg-subtle, #f6f8fa);
+}
+.od-custom-code-editor .CodeMirror-selected { background: #dbeafe !important; }
+.od-custom-code-editor .cm-operator { color: #009595; }
+.od-custom-code-editor .cm-property { color: hsl(21, 70%, 53%); }
+.od-custom-code-editor .cm-keyword { color: #304eaa; }
+.od-custom-code-editor .cm-comment { color: var(--ads-v2-color-gray-400, #8c94a3); }
+.od-custom-code-editor .cm-string { color: #1659df; }
+.od-custom-code-editor .cm-number { color: #555; }
+.od-custom-code-editor .cm-def { color: hsl(288, 44%, 44%); }

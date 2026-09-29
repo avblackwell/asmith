@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /></head>
+  <body><button id="open">Open builder</button><button id="pause">Pause</button><button id="resume">Resume</button><output id="message"></output>
+  <script type="module">
+    let builder;
+    const srcDoc = {
+      html: '<p id="marker">Original</p>', css: '#marker { color: blue; }',
+      js: 'appsmith.onReady(() => { document.getElementById("marker").textContent = appsmith.model.message; });',
+    };
+    const payload = { name: 'Custom1', widgetId: 'builder-bridge',
+      srcDoc, uncompiledSrcDoc: srcDoc, model: { message: 'Bridge model' },
+      events: { onPing: '{{showAlert("ping")}}' },
+      theme: { colors: { primaryColor: '#1266dd' }, borderRadius: {},
+        boxShadow: {}, fontFamily: {} },
+    };
+    document.getElementById('open').onclick = () => {
+      builder = window.open('/src/editor-bridge/native-widgets/custom-widget/bridge-harness.html', '_blank');
+    };
+    document.getElementById('pause').onclick = () => builder?.postMessage({ type: 'PAUSE' }, '*');
+    document.getElementById('resume').onclick = () => builder?.postMessage({ type: 'RESUME', ...payload }, '*');
+    window.addEventListener('message', (event) => {
+      if (event.source !== builder) return;
+      if (event.data.type === 'READY') {
+        builder.postMessage({ type: 'READY_ACK', ...payload }, '*');
+      }
+      if (event.data.type === 'UPDATE_SRCDOC') {
+        document.getElementById('message').textContent = JSON.stringify(event.data);
+      }
+    });
+  </script></body>
+</html>

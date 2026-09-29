@@ -1,0 +1,229 @@
+.workspace-page__rail h2 {
+  margin: 0 0 8px;
+  padding: 0 4px;
+  color: var(--ads-v2-color-fg-emphasis);
+}
+
+.workspace-page__rail nav {
+  display: grid;
+  gap: 2px;
+}
+
+.workspace-page__rail-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--ads-v2-border-radius);
+  background: transparent;
+  color: var(--ads-v2-color-fg);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.workspace-page__rail-item:hover {
+  background: var(--ads-v2-color-bg-subtle);
+}
+
+.workspace-page__rail-item[aria-current="page"] {
+  background: var(--ads-v2-color-bg-muted);
+  font-weight: 600;
+}
+
+.workspace-page__rail-item span {
+  width: 16px;
+  font-size: 17px;
+  text-align: center;
+}
+
+.workspace-page__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 96px;
+  padding: 24px 0 18px;
+}
+
+.workspace-page__heading h1,
+.workspace-page__section h2 {
+  margin: 0;
+}
+
+.workspace-page__heading p {
+  margin: 6px 0 0;
+  color: var(--ads-v2-color-fg-muted);
+  font-size: 13px;
+}
+
+.workspace-page__heading-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.workspace-page__account {
+  color: var(--ads-v2-color-fg-muted);
+  font-size: 13px;
+}
+
+.workspace-page__search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 620px;
+  padding: 0 0 24px;
+}
+
+.workspace-page__search > :first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.workspace-page__section {
+  padding-bottom: 24px;
+}
+
+.workspace-page__section-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+}
+
+.workspace-page__section-heading > span {
+  color: var(--ads-v2-color-fg-muted);
+  font-size: 12px;
+}
+
+/* Stock Applications cards use a 228 × 124 body and a separate footer. */
+.workspace-page__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.workspace-page__card {
+  width: 228px;
+  min-width: 0;
+}
+
+.workspace-page__card-surface {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  width: 228px;
+  height: 124px;
+  overflow: hidden;
+  padding: 16px;
+  border: 2px solid transparent;
+  border-radius: var(--ads-v2-border-radius);
+  color: var(--ads-v2-color-fg-emphasis-plus);
+  text-align: left;
+}
+
+.workspace-page__card-surface--interactive {
+  cursor: pointer;
+}
+
+.workspace-page__card-surface--interactive:hover,
+.workspace-page__card-surface--interactive:focus-visible {
+  border-color: var(--ads-v2-color-border-emphasis);
+}
+
+.workspace-page__card-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 7%);
+  font-size: 22px;
+}
+
+.workspace-page__card-surface > span:last-child {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow-wrap: anywhere;
+}
+
+.workspace-page__card-footer {
+  display: block;
+  overflow: hidden;
+  padding: 6px 4px 0;
+  color: var(--ads-v2-color-fg-muted);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workspace-page__empty,
+.workspace-page__message,
+.workspace-page__warning {
+  margin: 0;
+  color: var(--ads-v2-color-fg-muted);
+  font-size: 13px;
+}
+
+.workspace-page__message,
+.workspace-page__warning {
+  padding: 12px;
+  border: 1px solid var(--ads-v2-color-border);
+  border-radius: var(--ads-v2-border-radius);
+  margin-bottom: 12px;
+}
+
+.workspace-page__message p {
+  margin: 0 0 8px;
+}
+
+.workspace-page__pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 24px;
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .workspace-page__rail nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .workspace-page__rail-item {
+    width: auto;
+  }
+
+  .workspace-page__heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .workspace-page__search {
+    flex-wrap: wrap;
+  }
+
+  .workspace-page__search > :first-child {
+    flex-basis: 100%;
+  }
+
+  .workspace-page__card,
+  .workspace-page__card-surface {
+    width: min(100%, 320px);
+  }
+}

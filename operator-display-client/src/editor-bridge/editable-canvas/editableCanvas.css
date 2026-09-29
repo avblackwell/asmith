@@ -1,0 +1,64 @@
+.od-editable-canvas {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.od-editable-canvas--interacting {
+  user-select: none;
+}
+
+/* PositionedContainer / usePositionedContainerZIndex in the Fixed editor. */
+.od-editable-canvas .od-read-only-canvas__widget:not(.od-read-only-canvas__widget--canvas-widget) {
+  z-index: 1;
+  /* PositionedContainer leaves chrome outside its padded content visible. */
+  overflow: visible;
+  /* DraggableComponent's inner wrapper prevents selecting widget text mid-drag. */
+  user-select: none;
+}
+.od-editable-canvas .od-read-only-canvas__widget[draggable="true"] {
+  cursor: grab;
+}
+.od-editable-canvas .od-read-only-canvas__widget--selected:not(.od-read-only-canvas__widget--canvas-widget),
+.od-editable-canvas .od-read-only-canvas__widget:not(.od-read-only-canvas__widget--canvas-widget):hover {
+  z-index: 2;
+}
+.od-editable-canvas .od-read-only-canvas__widget:not(.od-read-only-canvas__widget--canvas-widget):focus-within {
+  z-index: 3;
+}
+/* usePositionedContainerZIndex: raise eligible drop targets above the parent
+   drag arena, and put the ghosted source and other widgets behind it. */
+.od-editable-canvas.od-editable-canvas--dragging .od-read-only-canvas__widget:not(.od-read-only-canvas__widget--canvas-widget) {
+  z-index: -1;
+}
+.od-editable-canvas.od-editable-canvas--dragging .od-read-only-canvas__widget:is(
+  .od-read-only-canvas__widget--container-widget,
+  .od-read-only-canvas__widget--statbox-widget,
+  .od-read-only-canvas__widget--tabs-widget,
+  .od-read-only-canvas__widget--modal-widget,
+  .od-read-only-canvas__widget--list-widget-v2
+) {
+  z-index: 2;
+}
+.od-editable-canvas.od-editable-canvas--dragging .od-read-only-canvas__widget[data-drag-source="true"] {
+  z-index: -1;
+}
+.od-editable-canvas .od-read-only-canvas__widget--selected:not(.od-read-only-canvas__widget--canvas-widget),
+.od-editable-canvas .od-read-only-canvas__widget:not(.od-read-only-canvas__widget--canvas-widget):focus-visible {
+  outline: none;
+}
+
+.od-editable-canvas__feedback {
+  position: absolute;
+  z-index: 12;
+  top: 12px;
+  left: 12px;
+  max-width: min(360px, calc(100% - 24px));
+  padding: 7px 10px;
+  border: 1px solid var(--ads-v2-color-border-error, #b42318);
+  border-radius: 4px;
+  background: var(--ads-v2-color-bg-error, #fff7f7);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+  color: var(--ads-v2-color-fg-error, #b42318);
+  font: 500 12px/1.4 Inter, sans-serif;
+  pointer-events: none;
+}

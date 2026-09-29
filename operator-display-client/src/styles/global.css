@@ -1,0 +1,33 @@
+@import "../assets/fonts/custom/index.css";
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ads-v2-color-bg);
+  color: var(--ads-v2-color-fg);
+  font-family: "PT Root UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-status {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  min-height: 100vh;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px;
+}

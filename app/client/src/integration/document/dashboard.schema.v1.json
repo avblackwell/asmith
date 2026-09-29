@@ -1,0 +1,295 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:asmith:dashboard-document:v1",
+  "title": "Dashboard document V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "assetKind",
+    "schemaVersion",
+    "documentId",
+    "name",
+    "compatibility",
+    "layout",
+    "variables",
+    "bindings",
+    "theme",
+    "componentDependencies"
+  ],
+  "properties": {
+    "assetKind": { "const": "dashboard" },
+    "schemaVersion": { "const": 1 },
+    "documentId": { "$ref": "#/$defs/nonemptyString" },
+    "name": { "$ref": "#/$defs/nonemptyString" },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["renderer", "layoutSystem", "widgetDslVersion"],
+      "properties": {
+        "renderer": { "const": "appsmith" },
+        "layoutSystem": { "const": "FIXED" },
+        "widgetDslVersion": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dsl"],
+      "properties": {
+        "dsl": { "$ref": "#/$defs/widget" }
+      }
+    },
+    "variables": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/variable" }
+    },
+    "bindings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/binding" }
+    },
+    "theme": {
+      "oneOf": [
+        { "$ref": "#/$defs/inlineTheme" },
+        { "$ref": "#/$defs/marketplaceTheme" }
+      ]
+    },
+    "componentDependencies": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/componentDependency" }
+    }
+  },
+  "$defs": {
+    "nonemptyString": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "widget": {
+      "type": "object",
+      "required": [
+        "widgetId",
+        "widgetName",
+        "type",
+        "version",
+        "topRow",
+        "bottomRow",
+        "leftColumn",
+        "rightColumn"
+      ],
+      "properties": {
+        "widgetId": { "$ref": "#/$defs/nonemptyString" },
+        "widgetName": { "$ref": "#/$defs/nonemptyString" },
+        "type": { "$ref": "#/$defs/nonemptyString" },
+        "version": { "type": "integer", "minimum": 1 },
+        "topRow": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "bottomRow": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "leftColumn": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "rightColumn": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "parentId": { "$ref": "#/$defs/nonemptyString" },
+        "children": { "type": "array", "items": { "$ref": "#/$defs/widget" } }
+      },
+      "additionalProperties": true
+    },
+    "variable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "label", "selector", "valueType"],
+      "properties": {
+        "key": { "$ref": "#/$defs/nonemptyString" },
+        "label": { "$ref": "#/$defs/nonemptyString" },
+        "selector": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["kind", "name"],
+              "properties": {
+                "kind": { "const": "logicalName" },
+                "name": { "$ref": "#/$defs/nonemptyString" }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["kind", "id"],
+              "properties": {
+                "kind": { "const": "cyflexId" },
+                "id": { "type": "string", "pattern": "^(0|[1-9][0-9]*)$" }
+              }
+            }
+          ]
+        },
+        "valueType": { "enum": ["number", "string", "boolean"] }
+      }
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "variableKey", "unitCode", "target", "presentation"],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonemptyString" },
+        "variableKey": { "$ref": "#/$defs/nonemptyString" },
+        "unitCode": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["widgetId", "propertyPath"],
+          "properties": {
+            "widgetId": { "$ref": "#/$defs/nonemptyString" },
+            "propertyPath": {
+              "type": "string",
+              "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*(\\.[A-Za-z_$][A-Za-z0-9_$]*)*$"
+            }
+          }
+        },
+        "presentation": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["kind", "template"],
+              "properties": {
+                "kind": { "const": "latest" },
+                "template": { "$ref": "#/$defs/nonemptyString" },
+                "decimalPlaces": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 12
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["kind", "maxPoints", "windowSeconds"],
+              "properties": {
+                "kind": { "const": "history" },
+                "maxPoints": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 10000
+                },
+                "windowSeconds": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 86400
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "inlineTheme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "name", "properties"],
+      "properties": {
+        "kind": { "const": "inline" },
+        "name": { "$ref": "#/$defs/nonemptyString" },
+        "properties": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["colors", "borderRadius", "boxShadow", "fontFamily"],
+          "properties": {
+            "colors": {
+              "type": "object",
+              "additionalProperties": { "$ref": "#/$defs/nonemptyString" },
+              "required": ["primaryColor", "backgroundColor"],
+              "properties": {
+                "primaryColor": { "$ref": "#/$defs/nonemptyString" },
+                "backgroundColor": { "$ref": "#/$defs/nonemptyString" }
+              }
+            },
+            "borderRadius": {
+              "$ref": "#/$defs/themeValueAppBorderRadius"
+            },
+            "boxShadow": { "$ref": "#/$defs/themeValueAppBoxShadow" },
+            "fontFamily": { "$ref": "#/$defs/themeValueAppFont" }
+          }
+        }
+      }
+    },
+    "themeValueAppBorderRadius": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/nonemptyString" },
+      "required": ["appBorderRadius"],
+      "properties": {
+        "appBorderRadius": { "$ref": "#/$defs/nonemptyString" }
+      }
+    },
+    "themeValueAppBoxShadow": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/nonemptyString" },
+      "required": ["appBoxShadow"],
+      "properties": {
+        "appBoxShadow": { "$ref": "#/$defs/nonemptyString" }
+      }
+    },
+    "themeValueAppFont": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/nonemptyString" },
+      "required": ["appFont"],
+      "properties": { "appFont": { "$ref": "#/$defs/nonemptyString" } }
+    },
+    "marketplaceTheme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "itemId", "revision"],
+      "properties": {
+        "kind": { "const": "marketplace" },
+        "itemId": { "$ref": "#/$defs/nonemptyString" },
+        "revision": { "$ref": "#/$defs/nonemptyString" }
+      }
+    },
+    "componentDependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "revision", "rootWidgetId", "source"],
+      "properties": {
+        "key": { "$ref": "#/$defs/nonemptyString" },
+        "revision": { "$ref": "#/$defs/nonemptyString" },
+        "rootWidgetId": { "$ref": "#/$defs/nonemptyString" },
+        "source": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["kind"],
+              "properties": { "kind": { "const": "embedded" } }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["kind", "itemId", "contentSha256"],
+              "properties": {
+                "kind": { "const": "marketplace" },
+                "itemId": { "$ref": "#/$defs/nonemptyString" },
+                "contentSha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

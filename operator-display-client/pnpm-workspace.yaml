@@ -1,0 +1,4 @@
+allowBuilds:
+  esbuild: true
+  preact: false
+  styled-components: true

@@ -1,0 +1,223 @@
+{
+  "assetKind": "dashboard",
+  "schemaVersion": 1,
+  "documentId": "example-engine-overview",
+  "name": "Engine overview",
+  "compatibility": {
+    "renderer": "appsmith",
+    "layoutSystem": "FIXED",
+    "widgetDslVersion": 89
+  },
+  "layout": {
+    "dsl": {
+      "widgetId": "0",
+      "widgetName": "MainContainer",
+      "type": "CANVAS_WIDGET",
+      "version": 89,
+      "topRow": 0,
+      "bottomRow": 120,
+      "leftColumn": 0,
+      "rightColumn": 1242,
+      "snapColumns": 64,
+      "parentRowSpace": 1,
+      "parentColumnSpace": 1,
+      "minHeight": 1200,
+      "canExtend": true,
+      "detachFromLayout": true,
+      "backgroundColor": "none",
+      "dynamicBindingPathList": [],
+      "children": [
+        {
+          "widgetId": "engine-title",
+          "widgetName": "EngineTitle",
+          "type": "TEXT_WIDGET",
+          "version": 1,
+          "parentId": "0",
+          "topRow": 2,
+          "bottomRow": 7,
+          "leftColumn": 2,
+          "rightColumn": 62,
+          "parentRowSpace": 10,
+          "parentColumnSpace": 19.4,
+          "text": "Engine overview",
+          "fontSize": "1.5rem",
+          "fontStyle": "BOLD",
+          "textAlign": "LEFT",
+          "textColor": "#17212b",
+          "isVisible": true,
+          "dynamicBindingPathList": []
+        },
+        {
+          "widgetId": "engine-speed-card",
+          "widgetName": "EngineSpeedCard",
+          "type": "CONTAINER_WIDGET",
+          "version": 1,
+          "parentId": "0",
+          "topRow": 10,
+          "bottomRow": 32,
+          "leftColumn": 2,
+          "rightColumn": 31,
+          "parentRowSpace": 10,
+          "parentColumnSpace": 19.4,
+          "containerStyle": "card",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#d8e1e8",
+          "borderWidth": "1",
+          "isVisible": true,
+          "children": [
+            {
+              "widgetId": "engine-speed-card-canvas",
+              "widgetName": "EngineSpeedCardCanvas",
+              "type": "CANVAS_WIDGET",
+              "version": 89,
+              "parentId": "engine-speed-card",
+              "topRow": 0,
+              "bottomRow": 22,
+              "leftColumn": 0,
+              "rightColumn": 29,
+              "parentRowSpace": 10,
+              "parentColumnSpace": 19.4,
+              "detachFromLayout": true,
+              "containerStyle": "none",
+              "canExtend": false,
+              "children": [
+                {
+                  "widgetId": "engine-speed-label",
+                  "widgetName": "EngineSpeedLabel",
+                  "type": "TEXT_WIDGET",
+                  "version": 1,
+                  "parentId": "engine-speed-card-canvas",
+                  "topRow": 2,
+                  "bottomRow": 6,
+                  "leftColumn": 2,
+                  "rightColumn": 26,
+                  "parentRowSpace": 10,
+                  "parentColumnSpace": 19.4,
+                  "text": "Engine speed",
+                  "fontSize": "0.875rem",
+                  "textColor": "#526575",
+                  "isVisible": true
+                },
+                {
+                  "widgetId": "engine-speed-value",
+                  "widgetName": "EngineSpeedValue",
+                  "type": "TEXT_WIDGET",
+                  "version": 1,
+                  "parentId": "engine-speed-card-canvas",
+                  "topRow": 7,
+                  "bottomRow": 14,
+                  "leftColumn": 2,
+                  "rightColumn": 26,
+                  "parentRowSpace": 10,
+                  "parentColumnSpace": 19.4,
+                  "text": "— rpm",
+                  "fontSize": "2rem",
+                  "fontStyle": "BOLD",
+                  "textColor": "#17212b",
+                  "isVisible": true,
+                  "dynamicBindingPathList": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "widgetId": "engine-speed-chart",
+          "widgetName": "EngineSpeedChart",
+          "type": "CHART_WIDGET",
+          "version": 1,
+          "parentId": "0",
+          "topRow": 36,
+          "bottomRow": 86,
+          "leftColumn": 2,
+          "rightColumn": 62,
+          "parentRowSpace": 10,
+          "parentColumnSpace": 19.4,
+          "chartType": "LINE_CHART",
+          "chartName": "Engine speed history",
+          "chartData": {
+            "speedSeries": {
+              "seriesName": "Engine speed",
+              "data": []
+            }
+          },
+          "xAxisName": "Time",
+          "yAxisName": "Speed (rpm)",
+          "showDataPointLabel": false,
+          "isVisible": true,
+          "dynamicBindingPathList": []
+        }
+      ]
+    }
+  },
+  "variables": [
+    {
+      "key": "engineSpeed",
+      "label": "Engine speed",
+      "selector": {
+        "kind": "logicalName",
+        "name": "ENGINE_SPEED"
+      },
+      "valueType": "number"
+    }
+  ],
+  "bindings": [
+    {
+      "id": "engine-speed-value-binding",
+      "variableKey": "engineSpeed",
+      "unitCode": 16,
+      "target": {
+        "widgetId": "engine-speed-value",
+        "propertyPath": "text"
+      },
+      "presentation": {
+        "kind": "latest",
+        "template": "{value} rpm",
+        "decimalPlaces": 0
+      }
+    },
+    {
+      "id": "engine-speed-history-binding",
+      "variableKey": "engineSpeed",
+      "unitCode": 16,
+      "target": {
+        "widgetId": "engine-speed-chart",
+        "propertyPath": "chartData.speedSeries.data"
+      },
+      "presentation": {
+        "kind": "history",
+        "maxPoints": 180,
+        "windowSeconds": 180
+      }
+    }
+  ],
+  "theme": {
+    "kind": "inline",
+    "name": "Operations light",
+    "properties": {
+      "colors": {
+        "primaryColor": "#126e9a",
+        "backgroundColor": "#f4f8fa"
+      },
+      "borderRadius": {
+        "appBorderRadius": "0.375rem"
+      },
+      "boxShadow": {
+        "appBoxShadow": "none"
+      },
+      "fontFamily": {
+        "appFont": "Inter"
+      }
+    }
+  },
+  "componentDependencies": [
+    {
+      "key": "engine-speed-card",
+      "revision": "1",
+      "rootWidgetId": "engine-speed-card",
+      "source": {
+        "kind": "embedded"
+      }
+    }
+  ]
+}

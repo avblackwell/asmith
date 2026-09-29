@@ -1,0 +1,30 @@
+{
+  "name": "@appsmith/ads",
+  "version": "2.1.43-operator-display.1",
+  "private": true,
+  "description": "Appsmith ADS source subset used by Operator Display",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "sideEffects": ["**/*.css"],
+  "license": "ISC",
+  "dependencies": {
+    "@radix-ui/react-tabs": "1.0.3",
+    "@react-aria/focus": "3.20.1",
+    "@react-aria/textfield": "3.17.1",
+    "@react-types/textfield": "3.12.0",
+    "@xstyled/styled-components": "3.8.0",
+    "@xstyled/system": "3.8.1",
+    "classnames": "2.3.2",
+    "csstype": "3.1.2",
+    "lodash": "4.18.1",
+    "loglevel": "1.8.1",
+    "rc-table": "7.35.2",
+    "rc-select": "14.1.0",
+    "remixicon-react": "1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "styled-components": "^5.3.6"
+  }
+}

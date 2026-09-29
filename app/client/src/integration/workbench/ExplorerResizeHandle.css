@@ -1,0 +1,34 @@
+.explorer-resize-handle {
+  position: relative;
+  z-index: 4;
+  width: 6px;
+  min-width: 6px;
+  height: 100%;
+  border: 0;
+  background: var(--ads-v2-color-bg);
+  cursor: col-resize;
+  touch-action: none;
+  user-select: none;
+}
+
+.explorer-resize-handle::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2px;
+  width: 1px;
+  background: var(--ads-v2-color-border);
+  content: "";
+}
+
+.explorer-resize-handle:hover::before,
+.explorer-resize-handle:focus-visible::before,
+.explorer-resize-handle:active::before {
+  width: 2px;
+  background: var(--ads-v2-color-fg-emphasis, #ff9b4e);
+}
+
+.explorer-resize-handle:focus-visible {
+  outline: 2px solid var(--ads-v2-color-outline);
+  outline-offset: -2px;
+}
